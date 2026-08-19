@@ -1,0 +1,144 @@
+.cs-filepicker {
+  display: flex;
+  flex-direction: column;
+  /* height: 100%; */
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border: 0.25rem dashed #e7e7e7;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.cs-filepicker>div {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.cs-filepicker-icon {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.cs-filepicker-icon::after {
+  content: "";
+  height: 4.5rem;
+  width: 6rem;
+  min-height: 2.5rem;
+  min-width: 3rem;
+  max-height: 5.5rem;
+  max-width: 7rem;
+  background-image: url('./icon.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.cs-filepicker-icon.doc::after {
+  content: "";
+  height: 4.5rem;
+  width: 6rem;
+  min-height: 2.5rem;
+  min-width: 3rem;
+  max-height: 5.5rem;
+  max-width: 4.5rem;
+  background-image: url('./doc.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-bottom: 0.6rem;
+}
+
+.cs-filepicker-icon.pdf::after {
+  content: "";
+  height: 4.5rem;
+  width: 6rem;
+  min-height: 2.5rem;
+  min-width: 3rem;
+  max-height: 5.5rem;
+  max-width: 4.5rem;
+  background-image: url('./pdf.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-bottom: 0.6rem;
+}
+
+.cs-filepicker-icon.xls::after {
+  content: "";
+  height: 4.5rem;
+  width: 6rem;
+  min-height: 2.5rem;
+  min-width: 3rem;
+  max-height: 5.5rem;
+  max-width: 4.5rem;
+  background-image: url('./xls.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-bottom: 0.6rem;
+}
+
+.cs-filepicker-icon.file::after {
+  content: "";
+  height: 4.5rem;
+  width: 6rem;
+  min-height: 2.5rem;
+  min-width: 3rem;
+  max-height: 5.5rem;
+  max-width: 4.5rem;
+  background-image: url('./file.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-bottom: 0.6rem;
+}
+
+.cs-filepicker-title {
+  font-size: 1.2rem;
+  margin: 1rem;
+  text-align: center;
+}
+
+.cs-filepicker-button {
+  display: flex;
+  max-width: 12rem;
+  background-color: #6969eb;
+  /* background-color: var(--primary); */
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.4rem;
+  border: none;
+  color: #fff;
+  border-radius: 0.2rem;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.cs-filepicker-button.remove {
+  background-color: #eb6969;
+}
+
+.cs-filepicker-subtitle {
+  margin: 0.2rem 0.7rem 0rem 0.7rem;
+  text-align: center;
+}
+
+.cs-filepicker-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.cs-filepicker-img-preview {
+  width: 70%;
+  max-height: 15rem;
+  object-fit: contain;
+  border-radius: 0.4rem;
+  margin: 1rem;
+}

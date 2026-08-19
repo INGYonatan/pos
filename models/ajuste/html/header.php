@@ -1,0 +1,13 @@
+<?php include __DIR__ . "/styles.php"; ?>
+
+<table cellspacing="0" cellpadding="5" border="0">
+  <tbody>
+    <tr>
+      <td class="cell" width="30%"><img src="<?= $this->getLeftLogo(); ?>" alt="Logo" height="65" /></td>
+
+      <td class="cell" align="center" width="40%"><img src="<?= $this->getCenterLogo(); ?>" alt="Logo" height="50" /></td>
+
+      <td class="cell text-end" width="30%"><span class="text-bold"></span></td>
+    </tr>
+  </tbody>
+</table>

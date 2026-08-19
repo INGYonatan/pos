@@ -1,0 +1,100 @@
+<?php
+include 'inc/session.inc.php';
+
+$id_producto = cleanStr($_GET['uid']);
+$id_sucursal = cleanStr($_GET['sid']);
+
+$data_producto = getProductDataById($id_producto);
+$data_sucursal = getBranchOfficeData($id_sucursal);
+
+if (!$data_producto) closeSession();
+
+$page_config = [
+  'page_title'        => 'Kardex - ' . $data_producto['nombre_producto'],
+  'page_identifier'   => 'kardex',
+  'modal_title_add'   => '',
+  'modal_title_edit'  => ''
+];
+
+if ($data_sucursal) $page_config['page_title'] .= " | {$data_sucursal['nombre_sucursal']}";
+
+checkModuleActionPermission($page_config['page_identifier'], 'ver', true);
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <?php include 'src/components/head.php'; ?>
+
+  <!-- JQUERY UI -->
+  <link rel="stylesheet" href="<?= BASE_URL; ?>/src/plugins/jquery-ui/jquery-ui.min.css">
+</head>
+
+<body class="loading">
+  <!-- Begin page -->
+  <div id="wrapper">
+    <!-- HEADER -->
+    <?php include 'src/components/header.php'; ?>
+
+    <!-- SIDEBAR -->
+    <?php include 'src/components/sidebar.php'; ?>
+
+    <div class="content-page">
+      <div class="content">
+        <div class="container-fluid">
+          <?php renderComponent("crudtable", [
+            "pageId"          => $page_config['page_identifier'],
+            "pageTitle"       => $page_config['page_title'],
+            "pageDescription" => "Consulta los movimientos de inventario del producto, revisa entradas, salidas y existencias por fecha",
+            "actions"         => renderToString(getFilterActions($page_config['page_identifier'])),
+            "extraHtmlInFilters" =>
+              '<input name="id_producto" value="' . $id_producto . '" type="hidden">' .
+              '<input name="id_sucursal" value="' . $id_sucursal . '" type="hidden">',
+            "filters" => [
+              [
+                "name"        => "search",
+                "label"       => "Buscar aquí",
+                "type"        => "input",
+                "placeholder" => "Producto, Acción...",
+              ],
+              [
+                "field"  => "render",
+                "render" => getComponent("field-fechas-desde-hasta")
+              ]
+            ]
+          ]); ?>
+        </div>
+      </div>
+
+      <!-- MODALS -->
+      <?php include 'src/modals/' . $page_config['page_identifier'] . '.php'; ?>
+
+      <!-- FOOTER -->
+      <?php include 'src/components/footer.php'; ?>
+    </div>
+  </div>
+  <!-- END wrapper -->
+
+  <!-- PAGE LOADINGS -->
+  <?php include 'src/components/page-loadings.php'; ?>
+
+  <!-- REQUIRED SCRIPTS -->
+  <?php include 'src/components/required-scripts.php'; ?>
+
+  <!-- APP JS -->
+  <script src="<?= BASE_URL; ?>/src/js/app.min.js"></script>
+
+  <!-- JQUERY UI -->
+  <script src="<?= BASE_URL; ?>/src/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+  <!-- DATEPICKER SPANISH -->
+  <script src="<?= BASE_URL; ?>/src/plugins/datepicker-spanish/datepicker-spanish.js"></script>
+
+  <script src="<?= BASE_URL; ?>/src/plugins/multidatatable/main.js"></script>
+  <script src="<?= BASE_URL; ?>/src/plugins/multidatatable/init.js"></script>
+
+  <script src="<?= BASE_URL; ?>/src/js/validate.init.js"></script>
+</body>
+
+</html>

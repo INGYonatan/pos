@@ -1,0 +1,32 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+RewriteRule ^crd-(.*)$ crud.php?module_slug=crd-$1 [L]
+RewriteRule ^cliente/([^/\.]+)$ cliente-panel.php?uid=$1&ref=datos-generales
+RewriteRule ^cliente/([^/\.]+)/([^/\.]+)$ cliente-panel.php?uid=$1&ref=$2
+RewriteRule ^ordenes-compra/([^/\.]+)/editar$ editar-orden-compra.php?uid=$1&ref=editar
+RewriteRule ^categorias/([^/\.]+)/familias$ categoria-familias.php?uid=$1&ref=familias
+
+RewriteRule ^facturas/([^/\.]+)$ facturas-$1.php
+RewriteRule ^facturas/([^/\.]+)/([^/\.]+)$ facturas-$2.php?billId=$1
+
+RewriteRule ^productos/([^/\.]+)$ productos-$1.php
+
+RewriteRule ^cuentas-por-cobrar/([^/\.]+)/estado-de-cuenta$ cuentas-por-cobrar-estado-de-cuenta.php?uid=$1
+
+RewriteRule ^inventario-traspasos/([^/\.]+)$ inventario-traspasos-$1.php
+
+RewriteRule ^usuarios/([^/\.]+)/permisos$ usuarios-permisos.php?uid=$1 [NC,L]
+
+RewriteRule ^ventas/([^/\.]+)/pagos$ ventas-pagos.php?uid=$1 [NC,L]
+
+RewriteRule ^usuarios/([^/\.]+)/archivos$ usuarios-catalogos.php?uid=$1 [NC,L]
+
+RewriteRule ^inventario-solicitudes-de-traspasos/crear$ inventario-solicitudes-de-traspasos-crear.php [NC,L]
+RewriteRule ^inventario-solicitudes-de-traspasos/([^/\.]+)$ inventario-solicitudes-de-traspasos.php?type=$1 [NC,L]
+
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+ErrorDocument 404 'Pagina no encontrada'

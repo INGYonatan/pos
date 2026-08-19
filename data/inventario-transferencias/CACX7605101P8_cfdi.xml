@@ -1,0 +1,57 @@
+  <cfdi:Comprobante
+    xmlns:cfdi="http://www.sat.gob.mx/cfd/4"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd"
+    Version="4.0"
+    Folio="1"
+    Fecha="2024-12-12T16:20:34"
+    SubTotal="0"
+    Moneda="XXX"
+    Total="0"
+    Exportacion="01"
+    TipoDeComprobante="T"
+    LugarExpedicion="30000"
+  >
+    <cfdi:Emisor
+      Rfc="CACX7605101P8"
+      Nombre="XOCHILT CASAS CHAVEZ"
+      RegimenFiscal="621"
+    />
+
+    <cfdi:Receptor
+      Rfc="CACX7605101P8"
+      Nombre="XOCHILT CASAS CHAVEZ"
+      DomicilioFiscalReceptor="9a Avenida pte/Sur"
+      RegimenFiscalReceptor="Incorporación Fiscal"
+      UsoCFDI="S01"
+    />
+
+      <cfdi:Conceptos>  <cfdi:Concepto
+    ObjetoImp="01"
+    ClaveProdServ="48101505"
+    NoIdentificacion="01cafetera"
+    Cantidad="2.00"
+    ClaveUnidad="H87"
+    Unidad="PZ"
+    Descripcion="cafetera"
+    ValorUnitario="0"
+    Importe="0"
+  >  <cfdi:Parte
+    ClaveProdServ="48101505"
+    NoIdentificacion="serial001"
+    Cantidad="1"
+    Unidad="PZ"
+    Descripcion="cafetera"
+    ValorUnitario="1"
+    Importe="1"
+  />  <cfdi:Parte
+    ClaveProdServ="48101505"
+    NoIdentificacion="serial002"
+    Cantidad="1"
+    Unidad="PZ"
+    Descripcion="cafetera"
+    ValorUnitario="1"
+    Importe="1"
+  />  </cfdi:Concepto>  </cfdi:Conceptos>
+  </cfdi:Comprobante>

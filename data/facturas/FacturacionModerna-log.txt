@@ -1,0 +1,16 @@
+2025-12-03T07:40:03-06:00	SOAP request:	<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="https://t2.facturacionmoderna.com/timbrado/soap" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><SOAP-ENV:Body><ns1:requestCancelarCFDI><request xsi:type="SOAP-ENC:Struct"><Motivo xsi:type="xsd:string">02</Motivo><uuid xsi:type="xsd:string">9ae93636-4de5-44cf-b2ab-50be312239b6</uuid><emisorRFC xsi:type="xsd:string">GFP140325SX0</emisorRFC><UserID xsi:type="xsd:string">HUCL8010062Q2</UserID><UserPass xsi:type="xsd:string">52294073dfa98ac0d240e42426960f48efad162c</UserPass></request></ns1:requestCancelarCFDI></SOAP-ENV:Body></SOAP-ENV:Envelope>
+
+
+2025-12-03T07:40:03-06:00	SOAP response:	<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Body><SOAP-ENV:Fault><faultcode>204</faultcode><faultstring>No se ha activado la cancelacion para el certificado : 00001000000512318542</faultstring></SOAP-ENV:Fault></SOAP-ENV:Body></SOAP-ENV:Envelope>
+
+
+2025-12-03T07:40:13-06:00	SOAP request:	<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="https://t2.facturacionmoderna.com/timbrado/soap" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><SOAP-ENV:Body><ns1:requestCancelarCFDI><request xsi:type="SOAP-ENC:Struct"><Motivo xsi:type="xsd:string">03</Motivo><uuid xsi:type="xsd:string">9ae93636-4de5-44cf-b2ab-50be312239b6</uuid><emisorRFC xsi:type="xsd:string">GFP140325SX0</emisorRFC><UserID xsi:type="xsd:string">HUCL8010062Q2</UserID><UserPass xsi:type="xsd:string">52294073dfa98ac0d240e42426960f48efad162c</UserPass></request></ns1:requestCancelarCFDI></SOAP-ENV:Body></SOAP-ENV:Envelope>
+
+
+2025-12-03T07:40:13-06:00	SOAP response:	<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Body><SOAP-ENV:Fault><faultcode>204</faultcode><faultstring>No se ha activado la cancelacion para el certificado : 00001000000512318542</faultstring></SOAP-ENV:Fault></SOAP-ENV:Body></SOAP-ENV:Envelope>
+
+

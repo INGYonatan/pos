@@ -1,0 +1,40 @@
+services:
+  app:
+    image: php82-base
+    container_name: app_cocinaspaal_pos
+    # --- AÑADE ESTO PARA SOLUCIONAR EL ERROR DE RED EN UBUNTU ---
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    # ----------------------------------------------------------
+    ports:
+      - "${APP_PORT}:80"
+    volumes:
+      - ./:/var/www/html/
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+      - "localhost:172.17.0.1"
+
+  db:
+    image: mariadb:10.11
+    container_name: db_cocinaspaal_pos
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: cocinaspaal_pos
+    ports:
+      - "${DB_PORT}:3306"
+    volumes:
+      - vol_cocinaspaal_pos_data:/var/lib/mysql
+
+  pma:
+    image: phpmyadmin
+    container_name: pma_cocinaspaal_pos
+    ports:
+      - "${PMA_PORT}:80"
+    environment:
+      PMA_HOST: db
+      UPLOAD_LIMIT: 512M
+      MEMORY_LIMIT: 512M
+
+volumes:
+  vol_cocinaspaal_pos_data:
