@@ -459,7 +459,7 @@ if ($posType == "cotizacion-a-venta") {
                   <div class="form-check mt-2">
                     <input class="form-check-input" type="checkbox" value="si" name="sendTicketByEmail" id="send-ticket-by-email">
                     <label class="form-check-label" for="send-ticket-by-email">
-                      ¿Enviar ticket por correo?
+                      ¿Enviar ticket por correo al cliente?
                     </label>
                   </div>
 
