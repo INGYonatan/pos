@@ -263,11 +263,11 @@
                 </a>
 
                 <div class="dropdown-menu">
-                  <?php if (!$row["folio_sae"]) : ?>
+                  <?php /* if (!$row["folio_sae"]) : ?>
                     <a class="dropdown-item btn-modal" data-bs-toggle="modal" data-bs-target="#modal-agregar-folio-sae" data-row="<?= htmlentities(json_encode($row)); ?>" href="javascript:void(0)">
                       <i class="fa fa-barcode"></i> Agregar folio SAE
                     </a>
-                  <?php endif; ?>
+                  <?php endif; */ ?>
 
                   <?php if ($row["forma_pago"] === "contado" && $row["efectivo"] > 0) : ?>
                     <a class="dropdown-item btn-modal btn-payment-reference" data-bs-toggle="modal" data-bs-target="#modal-agregar-referencia-efectivo" data-row="<?= htmlentities(json_encode($row)); ?>" href="javascript:void(0)">
