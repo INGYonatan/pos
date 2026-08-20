@@ -231,11 +231,12 @@ switch ($action):
           "quoteData" => $quoteData
         ]);
 
-        if ($saleCreditNoteTotals && !$productsModel->getId()) {
-          $response->status        = "¡Atención!";
-          $response->alertMessage  = 'No se ha creado un producto para notas de crédito, para crearlo ve a <a class="fw-bold" target="_blank" href="' . BASE_URL . '/productos">productos</a> y crea un producto con el tipo "Nota de Crédito"';
-          break;
-        }
+        // @comment Comentado para permitir ventas sin nota de crédito
+        // if ($saleCreditNoteTotals && !$productsModel->getId()) {
+        //   $response->status        = "¡Atención!";
+        //   $response->alertMessage  = 'No se ha creado un producto para notas de crédito, para crearlo ve a <a class="fw-bold" target="_blank" href="' . BASE_URL . '/productos">productos</a> y crea un producto con el tipo "Nota de Crédito"';
+        //   break;
+        // }
       }
 
       // Validar el crédito del cliente
@@ -497,21 +498,22 @@ switch ($action):
         endforeach;
 
         if ($quoteId) {
-          // Crear nota de crédito
-          createCreditNoteFromQuote([
-            "userId"     => $user_id,
-            "branchId"   => $branch_id,
-            "saleId"     => $sale_id,
-            "quoteData"  => $quoteData
-          ]);
+          // #comment Comentado para permitir ventas sin nota de crédito
+          // // Crear nota de crédito
+          // createCreditNoteFromQuote([
+          //   "userId"     => $user_id,
+          //   "branchId"   => $branch_id,
+          //   "saleId"     => $sale_id,
+          //   "quoteData"  => $quoteData
+          // ]);
 
-          $query = "UPDATE {$db_dti}_cotizaciones SET
-              status = 'procesado'
-            WHERE
-              id_cotizacion = {$quoteId}
-          ";
+          // $query = "UPDATE {$db_dti}_cotizaciones SET
+          //     status = 'procesado'
+          //   WHERE
+          //     id_cotizacion = {$quoteId}
+          // ";
 
-          mysqli_query($mysqli, $query);
+          // mysqli_query($mysqli, $query);
         }
 
         if ($payment_form == "credito") {

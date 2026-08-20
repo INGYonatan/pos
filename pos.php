@@ -282,10 +282,7 @@ if ($posType == "cotizacion-a-venta") {
                         <div class="form-group m-0">
                           <select id="atc-paymentForm" class="form-select form-control form-select-sm form-control-sm" name="paymentForm" data-content="#atc-paymentForm-info" required>
                             <option value="contado" selected>Contado</option>
-
-                            <?php if (!$quoteId) : ?>
-                              <option value="credito">Crédito</option>
-                            <?php endif; ?>
+                            <option value="credito">Crédito</option>
                           </select>
                         </div>
 
