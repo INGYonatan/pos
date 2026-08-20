@@ -598,33 +598,33 @@ switch ($action):
           }
         }
 
-        if ($isSerialNumbersSended) {
-          // Enviar el ticket a EMAIL_SEND_WHEN_SALE_EQUIPMENT
-          $ticket_venta_id_venta  = $sale_id;
-          $todayDate              = date("d/m/y");
-          $subject                = "VENTA EQUIPO {$todayDate} SUC {$branch_data["nombre_sucursal"]}";
+      // if ($isSerialNumbersSended) {
+      //   // Enviar el ticket a EMAIL_SEND_WHEN_SALE_EQUIPMENT
+      //   $ticket_venta_id_venta  = $sale_id;
+      //   $todayDate              = date("d/m/y");
+      //   $subject                = "VENTA EQUIPO {$todayDate} SUC {$branch_data["nombre_sucursal"]}";
 
-          ob_start();
-          include __DIR__ . "/../../ticket-venta.php";
-          $message = ob_get_clean();
+      //   ob_start();
+      //   include __DIR__ . "/../../ticket-venta.php";
+      //   $message = ob_get_clean();
 
-          $config = [
-            "mail" => new PHPMailer(),
-            "from" => [
-              "name" => ADM_NAME,
-              "username" => PHPMAILER_SALES_EMAIL,
-              "password" => PHPMAILER_SALES_PASSWORD
-            ],
-            "to" => [[
-              "name" => SALE_EQUIPMENT_NAME,
-              "email" => SALE_EQUIPMENT_EMAIL
-            ]],
-            "subject" => $subject,
-            "message" => $message
-          ];
+      //   $config = [
+      //     "mail" => new PHPMailer(),
+      //     "from" => [
+      //       "name" => ADM_NAME,
+      //       "username" => PHPMAILER_SALES_EMAIL,
+      //       "password" => PHPMAILER_SALES_PASSWORD
+      //     ],
+      //     "to" => [[
+      //       "name" => SALE_EQUIPMENT_NAME,
+      //       "email" => SALE_EQUIPMENT_EMAIL
+      //     ]],
+      //     "subject" => $subject,
+      //     "message" => $message
+      //   ];
 
-          $request = sendEmail($config);
-        }
+      //   $request = sendEmail($config);
+      // }
       endif;
     endif;
     break;
