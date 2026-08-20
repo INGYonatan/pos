@@ -112,6 +112,8 @@
                     </a>
                   <?php endif; ?>
 
+                  <?php
+                  /* 
                   <?php if (checkModuleActionPermission('cotizaciones-agregar-anticipo', 'agregar') && !$is_expired && $row['status'] != 'procesado') :
                     $publicData = htmlentities(json_encode($row));
                   ?>
@@ -123,6 +125,8 @@
                   <a class="dropdown-item" href="<?= BASE_URL; ?>/ventas?folio=<?= $row['folio']; ?>" target="_blank">
                     <i class="fa fa-eye me-1"></i> Ver anticipos
                   </a>
+                  */
+                  ?>
 
                   <hr class="my-1">
 
