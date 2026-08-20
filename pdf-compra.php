@@ -36,6 +36,11 @@ $seller->number         = $compra->seller->id;
 $seller->name           = $compra->seller->name;
 $seller->email          = $compra->seller->email;
 
+// Agregar el proveedor
+$supplier               = new stdClass();
+$supplier->number       = $compra->supplier->id;
+$supplier->name         = $compra->supplier->name;
+
 $products               = new stdClass();
 $products->list         = $compra->list;
 $products->shipment     = 0;

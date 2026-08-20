@@ -28,11 +28,14 @@ function compra_get_by_id(
         C.fecha_creacion,
         DATE_FORMAT(C.fecha_creacion, '%d-%m-%Y') AS fecha_creacion_formato,
         U.nombre_completo AS vendedor_nombre,
-        U.correo          AS vendedor_correo
+        U.correo          AS vendedor_correo,
+        P.nombre_comercial AS proveedor_nombre
       FROM
         {$db_dti}_compras AS C
       LEFT JOIN
         {$db_ati}_usuarios AS U ON (U.id_usuario = C.id_usuario)
+      LEFT JOIN
+        {$db_dti}_proveedores AS P ON (P.id_proveedor = C.id_proveedor)
       WHERE
         C.id_compra = ? AND
         C.status    != 'cancelado'
@@ -75,6 +78,10 @@ function compra_get_by_id(
   $purchase->seller->id           = $data['id_usuario'];
   $purchase->seller->name         = $data['vendedor_nombre'];
   $purchase->seller->email        = $data['vendedor_correo'];
+
+  $purchase->supplier              = new stdClass();
+  $purchase->supplier->id          = $data['id_proveedor'];
+  $purchase->supplier->name        = $data['proveedor_nombre'];
 
   return $purchase;
 }

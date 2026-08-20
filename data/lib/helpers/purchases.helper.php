@@ -493,7 +493,7 @@ function purchase_add(
     $response->status       = "success";
     $response->toastMessage = "La compra se realizó correctamente";
     $response->purchaseId   = $purchaseId;
-    $response->ticket       = BASE_URL . "/ticket-compra.php?uid={$purchaseId}";
+    $response->ticket       = BASE_URL . "/pdf-compra.php?uid={$purchaseId}";
   endif;
 
   if ($udpateCostPrices) {

@@ -80,15 +80,17 @@
       <tr>
         <td class="description" style="background-color: #444; color: #fff;">No. Asesor</td>
         <td class="description"><?= $seller->number; ?></td>
-        <td class="description" style="background-color: #444; color: #fff;">Email</td>
-        <td class="description" colspan="2"><?= $seller->email; ?></td>
+        <td class="description" style="background-color: #444; color: #fff;">Proveedor</td>
+        <td class="description" colspan="2"><?= $supplier->name; ?></td>
         <td class="description" style="background-color: #444; color: #fff;">Fecha de expedición</td>
         <td class="description" style="text-align: right;"><?= $compra->created_date_format; ?></td>
       </tr>
 
       <tr>
         <td class="description" style="background-color: #444; color: #fff;">Vendedor</td>
-        <td class="description" colspan="4"><?= $seller->name; ?></td>
+        <td class="description"><?= $seller->name; ?></td>
+        <td class="description" style="background-color: #444; color: #fff;">Email</td>
+        <td class="description" colspan="2"><?= $seller->email; ?></td>
         <td class="description" style="background-color: #444; color: #fff;">Vigencia</td>
         <td class="description" style="text-align: right;">--</td>
       </tr>
