@@ -133,8 +133,7 @@ $IS_ADMIN = $admp_session_user_data["IS_ADMIN"];
                     <div class="col-12">
                       <div class="form-group">
                         <label class="form-label" for="atc-observations">Observaciones</label>
-                        <textarea id="atc-observations" class="form-control" name="atc-observations" rows="8">PRECIOS CON VIGENCIA DE 3 DÍAS HÁBILES. EN CASO DE COMPRA, CONFIRMAR EXISTENCIAS DE LOS INSUMOS O EN SU CASO DE NO TENER EXISTENCIA VERIFICAR LOS TIEMPOS DE ENTREGA. PREGUNTA POR NUESTRAS PROMOCIONES EN MAYOREO.
-                        </textarea>
+                        <textarea id="atc-observations" class="form-control" name="atc-observations" rows="8"></textarea>
                       </div>
                     </div>
                   </div>
