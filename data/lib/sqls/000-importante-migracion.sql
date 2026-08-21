@@ -390,7 +390,7 @@ MODIFY COLUMN `cambio` decimal(22, 6) DEFAULT NULL;
 ALTER TABLE `regimen_fiscal` MODIFY COLUMN `regimen_fiscal` mediumtext COLLATE utf8mb4_bin;
 
 -- ------------------------------------------------------------
--- paal_productos
+-- @ nuevas actualizaciones
 -- Se agrega el año de fabricación
 -- ------------------------------------------------------------
 ALTER TABLE `paal_productos`
