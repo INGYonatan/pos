@@ -30,6 +30,8 @@ switch ($action) {
     $fecha_inicio   = cleanStr($_POST['fecha_inicio']);
     $fecha_fin      = cleanStr($_POST['fecha_fin']);
 
+    $status         = cleanStr($_POST["status"]);
+
     $customersModel = new CustomerHelper();
     $customersModel->getByMd5Id($customerMd5Id);
 
@@ -66,6 +68,9 @@ switch ($action) {
     if ($fecha_inicio && !$fecha_fin) $cWhere[] = ["(DATE_FORMAT(V.fecha_creacion, '%d-%m-%Y'))", $fecha_inicio];
     if (!$fecha_inicio && $fecha_fin) $cWhere[] = ["(DATE_FORMAT(V.fecha_creacion, '%d-%m-%Y'))", $fecha_fin];
 
+    if ($status == "pagado")    $cWhere[] = ["V.pagado", "si"];
+    if ($status == "pendiente") $cWhere[] = ["V.pagado", "no"];
+
     $result = useDataTable([
       "column_id"     => $columnId,
       "from"          => $cFrom,
@@ -86,12 +91,10 @@ switch ($action) {
     // Saldo pendiente
     $balance = $totalAmount - $totalPaid;
 
-    if ($result["status"] === "error")   echo getEmptyTableMessage();
-    if ($result["status"] === "success") include "{$identifier}_table.php";
-
     $totalAmountFormat = number_format($totalAmount, DECIMALS_CURRENCY_TICKET);
     $totalPaidFormat   = number_format($totalPaid, DECIMALS_CURRENCY_TICKET);
     $balanceFormat     = number_format($balance, DECIMALS_CURRENCY_TICKET);
+
 ?>
     <script>
       $("#totalAmount").text("$<?= $totalAmountFormat; ?>");
@@ -99,6 +102,9 @@ switch ($action) {
       $("#balance").text("$<?= $balanceFormat; ?>");
     </script>
 <?php
+
+    if ($result["status"] === "error")   echo getEmptyTableMessage();
+    if ($result["status"] === "success") include "{$identifier}_table.php";
     die;
 }
 

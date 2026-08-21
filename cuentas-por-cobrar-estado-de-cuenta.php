@@ -98,6 +98,16 @@ if (!$customersModel->getId()) {
                 "field"  => "render",
                 "render" => getComponent("field-fechas-desde-hasta")
               ],
+              [
+                "field"         => "select",
+                "name"          => "status",
+                "label"         => "Estatus",
+                "selectOptions" => [
+                  ["value" => "", "label" => "--Todos--"],
+                  ["value" => "pagado", "label" => "Pagado"],
+                  ["value" => "pendiente", "label" => "Pendiente"],
+                ],
+              ]
             ]
           ]); ?>
         </div>
