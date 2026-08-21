@@ -389,6 +389,13 @@ MODIFY COLUMN `cambio` decimal(22, 6) DEFAULT NULL;
 -- ------------------------------------------------------------
 ALTER TABLE `regimen_fiscal` MODIFY COLUMN `regimen_fiscal` mediumtext COLLATE utf8mb4_bin;
 
+-- ------------------------------------------------------------
+-- paal_productos
+-- Se agrega el año de fabricación
+-- ------------------------------------------------------------
+ALTER TABLE `paal_productos`
+ADD COLUMN `anio_fabricacion` INT (11) NULL DEFAULT NULL;
+
 -- ============================================================
 -- FIN DE LA SINCRONIZACIÓN DE ESTRUCTURA
 -- ============================================================
