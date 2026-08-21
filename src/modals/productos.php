@@ -165,8 +165,8 @@
         <hr class="my-2">
 
         <div class="card card-body shadow-none border">
-          <h3 class="card-title">Filtros para Productos tipo Llanta</h3>
-          <p class="page-description">Si tu producto es una llanta, define las dimensiones correspondientes.</p>
+          <h3 class="card-title">Campos para productos tipo llanta</h3>
+          <p class="page-description">Si tu producto es una llanta, define las dimensiones y el año de fabricación correspondientes.</p>
 
           <div class="row">
             <div class="col-12 col-md-4">
@@ -187,6 +187,15 @@
               <div class="form-group">
                 <label class="form-label" for="rin">Diámetro</label>
                 <input id="rin" class="form-control input-decimal" name="rin" type="text" value="0.00">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 col-lg-4">
+              <div class="form-group">
+                <label class="form-label" for="anio_fabricacion">Año de fabricación</label>
+                <input id="anio_fabricacion" class="form-control input-decimal" name="anio_fabricacion" min="1900" max="<?= date("Y"); ?>" maxlength="4" placeholder="<?= date("Y"); ?>" type="number">
               </div>
             </div>
           </div>

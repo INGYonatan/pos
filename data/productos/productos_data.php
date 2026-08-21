@@ -77,7 +77,8 @@ switch ($action) {
       "P.control_inventario",
       "P.ancho",
       "P.alto",
-      "P.rin"
+      "P.rin",
+      "P.anio_fabricacion"
     ];
 
     $c_join = "
