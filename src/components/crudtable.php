@@ -43,43 +43,45 @@ if (count($principalFilters) > $limitVisibleFilters) {
 $haveHiddenFilters  = count($hideFilters) > 0;
 ?>
 
-<form id="<?= $pageId; ?>-filters-form" class="row crudtable-component" autocomplete="off">
-  <div class="page-title-container d-flex flex-column gap-2 flex-lg-row justify-content-lg-between align-items-lg-center">
-    <div>
-      <?php if ($pageTitle || $pageDescription) : ?>
-        <div class="d-flex flex-column">
-          <?php if ($pageTitle) : ?>
-            <h1 class="page-title">
-              <?= $pageTitle; ?>
-            </h1>
-          <?php endif; ?>
+<form id="<?= $pageId; ?>-filters-form" class="row crudtable-component mt-0" autocomplete="off">
+  <?php if ($pageTitle || $pageDescription || $actions || $renderedActions) : ?>
+    <div class="page-title-container d-flex flex-column gap-2 flex-lg-row justify-content-lg-between align-items-lg-center">
+      <div>
+        <?php if ($pageTitle || $pageDescription) : ?>
+          <div class="d-flex flex-column">
+            <?php if ($pageTitle) : ?>
+              <h1 class="page-title">
+                <?= $pageTitle; ?>
+              </h1>
+            <?php endif; ?>
 
-          <?php if ($pageDescription) : ?>
-            <p class="page-description">
-              <?= $pageDescription; ?>
-            </p>
+            <?php if ($pageDescription) : ?>
+              <p class="page-description">
+                <?= $pageDescription; ?>
+              </p>
+            <?php endif; ?>
+          </div>
+        <?php endif; ?>
+      </div>
+
+      <?php if ($actions || $renderedActions) : ?>
+        <div class="btn-actions-group">
+          <?= $actions; ?>
+
+          <?php if ($renderedActions) : ?>
+            <?= $renderedActions; ?>
           <?php endif; ?>
         </div>
       <?php endif; ?>
     </div>
-
-    <?php if ($actions || $renderedActions) : ?>
-      <div class="btn-actions-group">
-        <?= $actions; ?>
-
-        <?php if ($renderedActions) : ?>
-          <?= $renderedActions; ?>
-        <?php endif; ?>
-      </div>
-    <?php endif; ?>
-  </div>
+  <?php endif; ?>
 
   <div class="col-12">
     <div class="card">
       <div class="card-body">
         <div id="<?= $pageId; ?>-crudtable-filters" class="crudtable-filters">
           <div class="d-flex flex-column flex-lg-row gap-3 w-100 align-items-center align-items-lg-start">
-            <div class="flex-1">
+            <div class="flex-1 w-100">
               <?php renderComponent("crudtable-fields", [
                 "pageId"  => $pageId,
                 "filters" => $principalFilters

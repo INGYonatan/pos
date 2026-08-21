@@ -3309,6 +3309,73 @@ function getCustomerById(
   return $customerData;
 }
 
+function getSalesTotalByCustomerId(int $customerId): float
+{
+  global $mysqli;
+  global $db_dti;
+
+  $query = "SELECT
+      SUM(VP.total) AS total
+    FROM
+      {$db_dti}_venta_productos AS VP
+    INNER JOIN
+      {$db_dti}_ventas AS V ON (V.id_venta = VP.id_venta)
+    WHERE
+      V.id_cliente = {$customerId}  AND
+      VP.cancelado = 'no'           AND
+      V.forma_pago = 'credito'      AND
+      V.pagado = 'no'               AND
+      V.status = 'activo'
+  ";
+
+  $result = mysqli_query($mysqli, $query);
+  $data   = mysqli_fetch_assoc($result);
+  $total  = $data["total"] ?? 0;
+
+  // Obtener el redondeo de todas las ventas
+  $query = "SELECT
+      SUM(redondeo) AS redondeo
+    FROM
+      {$db_dti}_ventas
+    WHERE
+      forma_pago  = 'credito' AND
+      pagado      = 'no'      AND
+      status      = 'activo'
+  ";
+
+  $result   = mysqli_query($mysqli, $query);
+  $data     = mysqli_fetch_assoc($result);
+  $redondeo = $data["redondeo"] ?? 0;
+
+  $total += $redondeo;
+
+  return doubleval($total);
+}
+
+function getSalesTotalPaidByCustomerId(int $customerId): float
+{
+  global $mysqli;
+  global $db_dti;
+
+  $query = "SELECT
+      SUM(VP.monto_total) AS monto_total
+    FROM
+      {$db_dti}_venta_pagos AS VP
+    INNER JOIN
+      {$db_dti}_ventas AS V ON (V.id_venta = VP.id_venta)
+    WHERE
+      V.id_cliente = {$customerId}  AND
+      V.forma_pago = 'credito'      AND
+      V.status     = 'activo'
+  ";
+
+  $result   = mysqli_query($mysqli, $query);
+  $data     = mysqli_fetch_assoc($result);
+  $total    = $data["monto_total"] ?? 0;
+
+  return doubleval($total);
+}
+
 function getSaleTotalById($saleId)
 {
   global $mysqli;
