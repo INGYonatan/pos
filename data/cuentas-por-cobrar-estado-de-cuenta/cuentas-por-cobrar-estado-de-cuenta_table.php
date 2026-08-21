@@ -56,12 +56,14 @@ $rowCounter = (($page - 1) * $perPage) + 1;
         $stmt->execute();
 
         $resultPayments = $stmt->get_result();
-        $numRows        = $resultPayments->num_rows;
+        $numPayments    = $resultPayments->num_rows;
 
-        if ($numRows > 0) {
+        ob_start();
+
+        if ($numPayments == 0) echo "<div class='alert alert-info mb-0' role='alert'>No hay pagos realizados en esta venta.</div>";
+
+        if ($numPayments > 0) {
           $paymentsRowCounter = 1;
-
-          ob_start();
       ?>
           <div class="table-responsive">
             <table class="table">
@@ -143,11 +145,11 @@ $rowCounter = (($page - 1) * $perPage) + 1;
             </table>
           </div>
         <?php
-
-          $paymentsTable = ob_get_clean();
-
-          $dataRow["sale_paymentsTable"] = $paymentsTable;
         }
+
+        $paymentsTable = ob_get_clean();
+
+        $dataRow["sale_paymentsTable"] = $paymentsTable;
 
         // Obtener el saldo pendiente
         $pendingBalance = $salesTotalAmount - $paymentsTotalAmount;
