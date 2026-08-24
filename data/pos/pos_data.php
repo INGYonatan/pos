@@ -498,8 +498,8 @@ switch ($action):
         endforeach;
 
         if ($quoteId) {
-          // #comment Comentado para permitir ventas sin nota de crédito
-          // // Crear nota de crédito
+          #comment Comentado para permitir ventas sin nota de crédito
+          // Crear nota de crédito
           // createCreditNoteFromQuote([
           //   "userId"     => $user_id,
           //   "branchId"   => $branch_id,
@@ -507,13 +507,13 @@ switch ($action):
           //   "quoteData"  => $quoteData
           // ]);
 
-          // $query = "UPDATE {$db_dti}_cotizaciones SET
-          //     status = 'procesado'
-          //   WHERE
-          //     id_cotizacion = {$quoteId}
-          // ";
+          $query = "UPDATE {$db_dti}_cotizaciones SET
+              status = 'procesado'
+            WHERE
+              id_cotizacion = {$quoteId}
+          ";
 
-          // mysqli_query($mysqli, $query);
+          mysqli_query($mysqli, $query);
         }
 
         if ($payment_form == "credito") {

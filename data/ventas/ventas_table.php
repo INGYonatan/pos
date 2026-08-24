@@ -25,9 +25,9 @@
                 </a>
 
                 <div class="dropdown-menu">
-                  <a id="btn-masivo-referencia-pago" class="dropdown-item btn-modal" data-bs-toggle="modal" data-bs-target="#modal-ventas-ms-referencia-pago" href="javascript:void(0)">
+                  <!-- <a id="btn-masivo-referencia-pago" class="dropdown-item btn-modal" data-bs-toggle="modal" data-bs-target="#modal-ventas-ms-referencia-pago" href="javascript:void(0)">
                     <i class="fa fa-plus-circle"></i> Referencia de pago
-                  </a>
+                  </a> -->
 
                   <!-- Timbrar ventas seleccionadas -->
                   <a id="btn-timbrar-ventas-seleccionadas" class="dropdown-item" data-href="<?= BASE_URL; ?>/facturas/nueva?tipo_factura=ingreso" href="javascript:void(0)">
@@ -269,13 +269,13 @@
                     </a>
                   <?php endif; */ ?>
 
-                  <?php if ($row["forma_pago"] === "contado" && $row["efectivo"] > 0) : ?>
+                  <?php /*if ($row["forma_pago"] === "contado" && $row["efectivo"] > 0) : ?>
                     <a class="dropdown-item btn-modal btn-payment-reference" data-bs-toggle="modal" data-bs-target="#modal-agregar-referencia-efectivo" data-row="<?= htmlentities(json_encode($row)); ?>" href="javascript:void(0)">
                       <i class="fa fa-plus-circle"></i> Referencia de pago
                     </a>
-                  <?php endif; ?>
+                  <?php endif;*/ ?>
 
-                  <hr class="my-1">
+                  <!-- <hr class="my-1"> -->
 
                   <?= getTableActions($identifier, $row, [
                     'cancelar' => [
