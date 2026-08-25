@@ -11,6 +11,7 @@ $page_config = [
 checkModuleActionPermission($page_config['page_identifier'], 'ver', true);
 
 $IS_ADMIN = $admp_session_user_data["IS_ADMIN"];
+$pageId = $page_config["page_identifier"];
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +46,7 @@ $IS_ADMIN = $admp_session_user_data["IS_ADMIN"];
                 "name"        => "search",
                 "label"       => "Buscar aquí",
                 "type"        => "input",
-                "placeholder" => "Observaciones...",
+                "placeholder" => "Folio, Observaciones...",
               ],
               [
                 "field"  => "render",

@@ -65,7 +65,14 @@ switch ($action) {
 
     $cWhere = [];
 
-    if ($search)          $cWhere[] = ["IT.observaciones", "%{$search}%", "LIKE"];
+    if ($search)          $cWhere[] = [
+      [
+        ["IT.observaciones", "%{$search}%", "LIKE"],
+        ["IT.folio", "%{$search}%", "LIKE", "OR"],
+        ["UR.nombre_completo", "%{$search}%", "LIKE", "OR"]
+      ]
+    ];
+
     if ($originBranchId)  $cWhere[] = ["IT.id_sucursal_origen", $originBranchId];
     if ($destinyBranchId) $cWhere[] = ["IT.id_sucursal_destino", $destinyBranchId];
 
