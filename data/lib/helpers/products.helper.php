@@ -615,8 +615,11 @@ class ProductHelper
       LEFT JOIN
         {$db_dti}_categoria_familias AS CF ON (CF.id_categoria_familia = P.id_categoria_familia)
       WHERE
-        (P.nombre_producto LIKE _utf8 '%{$term}%' collate utf8_unicode_ci) OR
-        (P.codigo LIKE _utf8 '%{$term}%' collate utf8_unicode_ci)
+        (
+          (P.nombre_producto LIKE _utf8 '%{$term}%' collate utf8_unicode_ci) OR
+          (P.codigo LIKE _utf8 '%{$term}%' collate utf8_unicode_ci)
+        ) AND
+        P.status = 'activo'
       ORDER BY
         P.nombre_producto
       ASC
