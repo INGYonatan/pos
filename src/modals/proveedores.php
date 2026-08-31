@@ -23,14 +23,14 @@ $modal_proveedores_style = $proveedores_page_config_origin == "productos" ? "mod
           <div class="col-12 col-lg-6">
             <div class="form-group">
               <label class="form-label" for="nombre_proveedor">Nombre completo<span class="text-danger">*</span></label>
-              <input id="nombre_proveedor" class="form-control" name="nombre_proveedor" type="text" required>
+              <input id="nombre_proveedor" class="form-control" name="nombre_proveedor" data-validateFieldKeyUp="true" data-validateFieldKeyUp-place="proveedores" type="text" required>
             </div>
           </div>
 
           <div class="col-12 col-lg-6">
             <div class="form-group">
               <label class="form-label" for="nombre_comercial">Nombre comercial<span class="text-danger">*</span></label>
-              <input id="nombre_comercial" class="form-control" name="nombre_comercial" type="text" required>
+              <input id="nombre_comercial" class="form-control" name="nombre_comercial" data-validateFieldKeyUp="true" data-validateFieldKeyUp-place="proveedores" type="text" required>
             </div>
           </div>
         </div>

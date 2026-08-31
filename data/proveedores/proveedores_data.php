@@ -149,6 +149,70 @@ switch ($action) {
       ];
     endif;
     break;
+
+  case "validate-field-key-up-nombre_proveedor":
+    $term = cleanStr($_POST["value"]);
+
+    // Modificamos la consulta para aplicar el COLLATE correctamente al final de la comparación
+    $query = "SELECT
+        id_proveedor
+      FROM
+        {$db_dti}_proveedores
+      WHERE
+        (nombre_proveedor = _utf8 '{$term}' collate utf8_unicode_ci) AND
+        status = 'activo'
+      LIMIT 1
+    ";
+
+    $result = mysqli_query($mysqli, $query);
+    $numRows = mysqli_num_rows($result);
+
+    if ($numRows > 0) {
+      $response = [
+        "status"  => "error",
+        "message" => "El nombre del proveedor ya existe, ten cuidado para no duplicar nombre de proveedores."
+      ];
+    }
+
+    if ($numRows == 0) {
+      $response = [
+        "status"  => "success",
+        "message" => "El nombre del proveedor no existe, puedes crear el proveedor."
+      ];
+    }
+    break;
+
+  case "validate-field-key-up-nombre_comercial":
+    $term = cleanStr($_POST["value"]);
+
+    // Modificamos la consulta para aplicar el COLLATE correctamente al final de la comparación
+    $query = "SELECT
+        id_proveedor
+      FROM
+        {$db_dti}_proveedores
+      WHERE
+        (nombre_comercial = _utf8 '{$term}' collate utf8_unicode_ci) AND
+        status = 'activo'
+      LIMIT 1
+    ";
+
+    $result = mysqli_query($mysqli, $query);
+    $numRows = mysqli_num_rows($result);
+
+    if ($numRows > 0) {
+      $response = [
+        "status"  => "error",
+        "message" => "El nombre comercial del proveedor ya existe, ten cuidado para no duplicar nombres comerciales."
+      ];
+    }
+
+    if ($numRows == 0) {
+      $response = [
+        "status"  => "success",
+        "message" => "El nombre comercial del proveedor no existe, puedes crear el proveedor."
+      ];
+    }
+    break;
 }
 
 echo json_encode($response);
