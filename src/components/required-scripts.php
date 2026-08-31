@@ -80,3 +80,51 @@
     })
   });
 </script>
+
+<script>
+  let timeoutValidateKeyUp;
+
+  $(`[data-validateFieldKeyUp="true"]`).on('keyup', function() {
+    const id = $(this).attr('id') ?? $(this).attr('name');
+    const place = $(this).attr('data-validateFieldKeyUp-place');
+    const value = $(this).val();
+
+    if (!value) {
+      clearTimeout(timeoutValidateKeyUp);
+      $(this).closest('.form-group').removeClass('is-invalid');
+      $(this).closest('.form-group').find(`#${id}-validateFieldKeyUp`).remove();
+      return;
+    }
+
+    clearTimeout(timeoutValidateKeyUp);
+
+    const $this = $(this);
+
+    timeoutValidateKeyUp = setTimeout(() => {
+      callEndpoint({
+        place,
+        parameters: {
+          action: `validate-field-key-up-${id}`,
+          value
+        }
+      }).then(response => {
+        console.log(response);
+
+        const message = response?.message ?? "";
+        const elementId = `${id}-validateFieldKeyUp`;
+        const element = $(`#${elementId}`);
+
+        if (response.status == 'success') {
+          $this.closest('.form-group').removeClass('is-invalid');
+          $this.closest('.form-group').find(`#${id}-validateFieldKeyUp`).remove();
+        }
+
+        if (response.status == 'error') {
+          $this.closest('.form-group').addClass('is-invalid');
+          if (element.length == 0) $this.closest('.form-group').append(`<span id="${id}-validateFieldKeyUp" class="invalid-feedback d-flex">${message}</span>`);
+          if (element.length > 0) $(element).html(message);
+        }
+      });
+    }, 300);
+  });
+</script>

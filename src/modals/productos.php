@@ -20,7 +20,7 @@
           <div class="col-12 col-lg-8">
             <div class="form-group">
               <label class="form-label" for="nombre_producto">Nombre del producto<span class="text-danger">*</span></label>
-              <input id="nombre_producto" class="form-control" name="nombre_producto" type="text" required>
+              <input id="nombre_producto" class="form-control" name="nombre_producto" data-validateFieldKeyUp="true" data-validateFieldKeyUp-place="productos" type="text" required>
             </div>
           </div>
         </div>
