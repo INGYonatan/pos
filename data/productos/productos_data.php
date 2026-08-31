@@ -549,7 +549,7 @@ switch ($action) {
 
       $name              = cleanStr($product[$positionName] ?? "") ?? "";
       $typeName          = cleanStr($product[$positionType] ?? "Producto") ?? "Producto";
-      $requiresSerial    = intval($product[$positionRequiresSerial] ?? 0) > 0 ? 1 : 0;
+      $requiresSerial    = $product[$positionRequiresSerial] == "si" ? 1 : 0;
       $brandName         = cleanStr($product[$positionBrand] ?? "") ?? "";
       $supplierName      = cleanStr($product[$positionSupplier] ?? "") ?? "";
       $unitName          = cleanStr($product[$positionUnit] ?? "") ?? "";
