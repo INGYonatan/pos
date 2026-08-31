@@ -268,7 +268,8 @@
             </div>
           </div>
 
-          <div class="col-6 col-lg-4 col-xl-3">
+          <?php /* 
+          <div class="col-6 col-lg-4 col-xl-3" style="display: none;">
             <div class="form-group">
               <label class="form-label" for="en_dolares">¿En dolares?<span class="text-danger">*</span></label>
               <select class="form-control form-select" name="en_dolares" id="en_dolares" required>
@@ -277,6 +278,7 @@
               </select>
             </div>
           </div>
+          */ ?>
         </div>
 
         <div class="row">
