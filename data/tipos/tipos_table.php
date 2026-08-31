@@ -5,8 +5,8 @@
         <th>Nombre</th>
         <th class="text-center">Requiere número de serie</th>
         <th class="text-center">Tangible</th>
-        <th class="text-center">Es anticipo</th>
-        <th class="text-center">Es nota de crédito</th>
+        <!-- <th class="text-center">Es anticipo</th>
+        <th class="text-center">Es nota de crédito</th> -->
 
         <?php if ($haveActions) : ?>
           <th class="text-end">
@@ -36,13 +36,13 @@
             <?= $row->getTangible() ? '<span class="badge bg-success">Sí</span>' : '<span class="badge bg-secondary">No</span>'; ?>
           </td>
 
-          <td class="text-center">
+          <!-- <td class="text-center">
             <?= $row->getIsAdvance() ? '<span class="badge bg-success">Sí</span>' : '<span class="badge bg-secondary">No</span>'; ?>
           </td>
 
           <td class="text-center">
             <?= $row->getIsCreditNote() ? '<span class="badge bg-success">Sí</span>' : '<span class="badge bg-secondary">No</span>'; ?>
-          </td>
+          </td> -->
 
           <?php if ($haveActions) : ?>
             <td class="text-end">

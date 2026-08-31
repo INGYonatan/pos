@@ -42,7 +42,7 @@ $modal_tipos_style   = $modal_tipos_origin == "productos" ? 'modal-secondary' : 
           </div>
         </div>
 
-        <div class="row mt-3">
+        <!-- <div class="row mt-3">
           <div class="col-12 col-lg-6">
             <div class="form-check form-switch">
               <input id="fdt-isAdvance" class="form-check-input" name="isAdvance" value="1" type="checkbox">
@@ -60,7 +60,7 @@ $modal_tipos_style   = $modal_tipos_origin == "productos" ? 'modal-secondary' : 
 
             <span class="form-text">Indica si este tipo de producto es una nota de crédito.</span>
           </div>
-        </div>
+        </div> -->
       </div>
 
       <input name="uid" type="hidden">
