@@ -127,4 +127,10 @@
       });
     }, 300);
   });
+
+  $('.input-withoutspaces').on('input', function() {
+    // Elimina todos los espacios en blanco en tiempo real
+    const cleanValue = $(this).val().replace(/\s+/g, '');
+    $(this).val(cleanValue);
+  });
 </script>

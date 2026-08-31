@@ -951,6 +951,38 @@ switch ($action) {
       ];
     }
     break;
+
+  case "validate-field-key-up-codigo":
+    $term = cleanStr($_POST["value"]);
+
+    // Modificamos la consulta para aplicar el COLLATE correctamente al final de la comparación
+    $query = "SELECT
+        P.id_producto
+      FROM
+        {$db_dti}_productos AS P
+      WHERE
+        (P.codigo = _utf8 '{$term}' collate utf8_unicode_ci) AND
+        P.status = 'activo'
+      LIMIT 1
+    ";
+
+    $result = mysqli_query($mysqli, $query);
+    $numRows = mysqli_num_rows($result);
+
+    if ($numRows > 0) {
+      $response = [
+        "status"  => "error",
+        "message" => "El código del producto ya existe"
+      ];
+    }
+
+    if ($numRows == 0) {
+      $response = [
+        "status"  => "success",
+        "message" => "El código del producto no existe, puedes crear el producto."
+      ];
+    }
+    break;
 }
 
 echo json_encode($response);

@@ -13,7 +13,7 @@
           <div class="col-12 col-lg-4">
             <div class="form-group">
               <label class="form-label" for="codigo">Código<span class="text-danger">*</span></label>
-              <input id="codigo" class="form-control" name="codigo" type="text" required>
+              <input id="codigo" class="form-control input-withoutspaces" name="codigo" data-validateFieldKeyUp="true" data-validateFieldKeyUp-place="productos" type="text" required>
             </div>
           </div>
 
